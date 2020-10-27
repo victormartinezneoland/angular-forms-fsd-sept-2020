@@ -1,0 +1,92 @@
+<h1>Reactive Form</h1>
+
+<hr>
+
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()">
+
+    <div class="container">
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Nombre</label>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Escribe tu nombre"
+                formControlName="nombre"
+                [class.is-invalid]="nombreInvalido"
+            >
+            <small *ngIf="nombreInvalido"
+            class="form-text text-danger">
+                El nombre debe tener al menos 3 letras.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Apellido</label>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Escribe tu apellido"
+                formControlName="apellido"
+                [class.is-invalid]="apellidoInvalido"
+            >
+            <small *ngIf="apellidoInvalido"
+            class="form-text text-danger">
+                Indica un apellido.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Email</label>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="email"
+                placeholder="Escribe tu email"
+                formControlName="email"
+                [class.is-invalid]="emailInvalido"
+            >
+            <small *ngIf="emailInvalido"
+            class="form-text text-danger">
+                Tu dirección de correo electrónico no es correcta.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group row" formGroupName="direccion">
+        <label class="col-2 col-form-label">Dirección</label>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Calle"
+                formControlName="calle"
+            >
+        </div>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Ciudad"
+                formControlName="ciudad"
+            >
+        </div>
+        <div class="col-8">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="País"
+                formControlName="pais"
+            >
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+    </div>
+</div>
+
+</form>
